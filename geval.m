@@ -11,8 +11,8 @@ for i = [1 2 3]
 end
 
 X_P1 = sqrt(3)/6*(2*b + d -3*P(1));
-X_P2 = -sqrt(3)/6*(b+2*d);
-X_P3 = -sqrt(3)/6*(b -d -3*P(3));
+X_P2 = -sqrt(3)/6*(b + 2*d);
+X_P3 = -sqrt(3)/6*(b - d - 3*P(3));
 
 X_P = [X_P1 X_P2 X_P3];
 
