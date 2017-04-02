@@ -40,17 +40,20 @@ X_P = G(2,:);
 Y_P = G(3,:);
 
 
-%Vill slumpa fram bra värden, går inte så bra
+%Vill slumpa fram bra värden
 X_T = -5 + 10*rand(1,3);
 res = stf(a, h , X_P, Y_P, X_T);
 
-tol = 1; %Never ending loop (funkar för typ 320...)
+tol = 0.2; 
 while (abs(res(1)) > tol || abs(res(2)) > tol || abs(res(3)) > tol || isreal(res(1)) == 0 || isreal(res(2)) == 0 || isreal(res(3)) == 0)
     a = -5;
     b = 5;
-    X_T = a + (b-a)*rand(1,3)
-    res = stf(a, h , X_P, Y_P, X_T)
+    X_T = a + (b-a)*rand(1,3);
+    res = stf(a, h , X_P, Y_P, X_T);
 end 
+
+X_T
+res
 
 %% Task 3
 clc
@@ -66,16 +69,5 @@ h = G(1,:);
 X_P = G(2,:);
 Y_P = G(3,:);
 
-[X_T, fval] = fsolve(@(X_T) stf(a, h, X_P, Y_P, X_T), [-2.55 4.94 -3.98])
-[X_T, fval] = fsolve(@(X_T) stf(a, h, X_P, Y_P, X_T), [-2.64 4.91 -4.2])
+[X_T, fval] = fsolve(@(X_T) stf(a, h, X_P, Y_P, X_T), [1.4402 -2.9032 1.4425])
 [X_T, fval] = fsolve(@(X_T) stf(a, h, X_P, Y_P, X_T), [sqrt(3)/6*a -sqrt(3)/3*a sqrt(3)/6*a])
-
-
-
-
-
-
-
-
-
-
